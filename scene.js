@@ -6,6 +6,15 @@ const mint = '#9ef4dc';
 const amber = '#ffcb7d';
 const ink = '#152129';
 const duration = 8;
+const controls = [...document.querySelectorAll('#settings input')];
+const settings = Object.fromEntries(controls.map(input => [
+  input.id, input.type === 'number' ? Number(input.value) : input.value
+]));
+controls.forEach(input => input.addEventListener('input', () => {
+  if (input.type === 'number' && (input.value === '' || !input.validity.valid)) return;
+  settings[input.id] = input.type === 'number' ? input.valueAsNumber : input.value;
+  draw();
+}));
 
 function rect(x, y, w, h, color) {
   ctx.fillStyle = color;
@@ -23,10 +32,10 @@ function render(t) {
   rect(275, 54, 169, 300, '#214640');
   ctx.setLineDash([6, 6]);
   ctx.strokeStyle = mint;
-  ctx.strokeRect(291, 86, 137, 229);
+  ctx.strokeRect(275 + settings.margin, 54 + settings.margin, 169 - 2 * settings.margin, 300 - 2 * settings.margin);
   ctx.setLineDash([]);
-  label('İstasyon', 304, 152, 23);
-  label(`${Math.round(42 + Math.sin(t) * 4)} L/s`, 303, 226, 30);
+  label(settings.text, 304, 152, 23);
+  label(`${settings.value} L/s`, 295, 218 + 12 * Math.sin(t), 24);
 }
 
 const seek = document.querySelector('#seek');
@@ -67,6 +76,13 @@ play.addEventListener('click', () => {
 seek.addEventListener('input', () => {
   position = Number(seek.value);
   draw();
+});
+
+document.querySelector('#save').addEventListener('click', () => {
+  const link = document.createElement('a');
+  link.download = 'vertical-safe-area.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
 });
 
 draw();
