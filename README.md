@@ -1,4 +1,8 @@
-# Dikey kadraj provası
+# Vertical Safe Area / Dikey kadraj provası
+
+## Türkçe
+
+[Canlı aracı aç](https://omerbek.github.io/vertical-safe-area/).
 
 Dikey videoda metin ve ölçüm kartı için güvenli alanı önizle.
 
@@ -6,9 +10,6 @@ Dikey videoda metin ve ölçüm kartı için güvenli alanı önizle.
 
 `index.html` dosyasını bir tarayıcıda aç. Oynat düğmesini ve zaman çizelgesini kullanarak sekiz saniyelik sahneyi incele. HTML ve Canvas 2D ile çevrimdışı çalışır.
 
-## İlham kaynağı
-
-Bu bağımsız sahne sentetik su istasyonu örnekleri kullanır. [Kaynak proje](https://github.com/remotion-dev/skills).
 
 ## Sahne ayarları
 
@@ -17,3 +18,9 @@ Bu bağımsız sahne sentetik su istasyonu örnekleri kullanır. [Kaynak proje](
 - Kenar payı (px)
 
 Sekiz saniyelik zaman çizelgesinden bir kare seçip **PNG indir** ile 720 × 405 piksel dışa aktarabilirsin.
+
+## English
+
+Preview a title and flow reading within adjustable vertical-video margins.
+
+Open [the live tool](https://omerbek.github.io/vertical-safe-area/) or open `index.html` in a browser. Switch between Turkish and English in the page header. Use the timeline to select a frame and **Download PNG** to save it at 720 × 405 pixels.
